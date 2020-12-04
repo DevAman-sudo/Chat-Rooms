@@ -49,4 +49,11 @@ users = {}; // Users Container //
 
 io.on('connection', (socket) => {
     
+    // Reciving Users Name From Client //
+    socket.on('new-user-joined',
+        (Name) => {
+            users[socket.id] = Name; // Storing Users Socket ID as Name in Users Object //
+            socket.broadcast.emit('user-joined' , Name);
+        });
+    
 });
