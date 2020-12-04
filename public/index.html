@@ -3,14 +3,42 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- Google Fonts Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+    <!-- Font Awesome CDN Link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!-- local css file path -->
     <link rel="stylesheet" href="/Css/style.css" />
     <!-- page title and favicon -->
+    <link rel="shortcut icon" href="/Img/chatbot.png" type="image/x-icon" />
     <title>Chat Room</title>
 </head>
 <body>
 
+    <!-- Page Header Navatigation -->
+    <header class="header" id="header">
+        <img class="logo" id="logo" src="/Img/chatbot.png" alt="logo" />
+    </header>
     
+    <!-- Data Container For Form Data -->
+    <div class="data-container" id="data-container">
+        <!-- Right Message Box -->
+        <div class="message-box">
+            <small class="left small">Hello World!</small>
+        </div>
+        <!-- Left Message Box -->
+        <div class="message-box">
+            <small class="right small">Hello Again!</small>
+        </div>
+    </div>
+    
+    <!-- Chat Submit Form -->
+    <form class="form" id="form" action="#" method="get" accept-charset="utf-8">
+        <input type="text" name="text" id="text-area" class="text-area" placeholder="Type Message ..." />
+        <button type="submit" class="button" id="button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+    </form>
+
     <!-- Web Socket (socket.io) liabriary JavaScript CDN link -->
     <script defer src="socket.io/socket.io.js"></script>
     <!-- local JavaScript File Path -->
