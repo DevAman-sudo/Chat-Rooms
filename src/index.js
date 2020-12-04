@@ -61,9 +61,8 @@ io.on('connection', (socket) => {
         (message) => {
             // Sending Socket ID as Name and Message To Client Side //
             socket.broadcast.emit('receive', {
-                name: users[socket.id], message: message
+                name: users[socket.id] , message: message
             });
-            console.log(message);
         });
 
     // Socket Users Disconnect Event //

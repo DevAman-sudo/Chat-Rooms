@@ -38,7 +38,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: sticky;
 }
 
 /* Header logo */
@@ -53,7 +52,8 @@ body {
 .data-container {
     z-index: -5;
     width: 100%;
-    height: 60vh;
+    max-height: 65vh;
+    overflow: auto;
 }
 
 /* Data Container Message Box */
@@ -111,11 +111,16 @@ body {
 /* Form */
 .form {
     width: 100%;
+    height: 20vh;
     margin-top: auto;
     margin-bottom: 6rem;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    background: var(--main-background);
+    position: fixed;
+    left: 0;
+    top: 82%;
 }
 
 /* Form TEXT Area */
@@ -145,6 +150,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.form .button:focus {
+    outline: 0;
 }
 
 /* Form Button Icon */
