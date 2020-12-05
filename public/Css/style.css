@@ -55,7 +55,7 @@ body {
 /* Data Container */
 .data-container {
     width: 100%;
-    max-height: 30rem;
+    height: calc(100% - 12rem);
     overflow-y: auto;
     position: relative;
     background: var(--main-background);

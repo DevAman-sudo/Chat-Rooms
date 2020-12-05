@@ -24,11 +24,11 @@ function appendData(data , className) {
     const imgElement = document.createElement('img');
     imgElement.classList.add('icon');
     imgElement.classList.add('left');
-    imgElement.src = "../Img/icon.png" ;
+    imgElement.src = "../Img/icon.png";
     if (className !== "left") {
-        imgElement.style.display = "none" ;
+        imgElement.style.display = "none";
     }
-    
+
     // Creating Small Tag Element For Div Element with classList Small //
     const messageElement = document.createElement('small');
     messageElement.classList.add('small');
@@ -39,6 +39,12 @@ function appendData(data , className) {
     divElement.appendChild(imgElement);
     divElement.appendChild(messageElement);
     dataContainer.appendChild(divElement);
+
+    // Scrolling Div Element With Anime Js //
+    anime({
+        targets: '.small .icon',
+        translateY: 50
+    });
 
     // Playing Audio on Message Receive/ Send //
     if (className === "left") {
@@ -58,6 +64,7 @@ form.addEventListener('submit', (event) => {
         socket.emit('send', message); // send message to Server //
         sendAudio.play();
     }
+    // Clearing Text Area After On Button Click //
     textArea.value = "";
 });
 
