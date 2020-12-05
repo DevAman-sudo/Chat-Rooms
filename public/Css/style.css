@@ -16,16 +16,20 @@
 }
 
 /* Html and Body Tag */
-html { font-size: 62.5%; }
+html {
+    font-size: 62.5%; 
+    scroll-behavior: smooth;
+    background: var(--main-background);
+}
 body {
     width: 100vw;
-    height: auto;
-    min-height: 100vh;
+    height: 80vh;
     background: var(--main-background);
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: 'Poppins', sans-serif;
+    overflow-y: hidden;
 }
 
 /* -------------------------------------- */
@@ -50,22 +54,25 @@ body {
 /* -------------------------------------- */
 /* Data Container */
 .data-container {
-    z-index: -5;
     width: 100%;
-    max-height: 65vh;
-    overflow: auto;
+    max-height: 30rem;
+    overflow-y: auto;
+    position: relative;
+    background: var(--main-background);
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 /* Data Container Message Box */
 .data-container .message-box {
-
 }
 
 /* Data Container Message Box All Small Tag */
 .data-container .small {
-    width: 17rem;
+    width: 20rem;
     height: auto;
     min-height: 3rem;
+    overflow-wrap: wrap;
     margin: 1rem;
     padding: 1rem;
     display: flex;
@@ -74,6 +81,8 @@ body {
     color: var(--soft-white);
     font-weight: bold;
     font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Data Container Middle Message */
@@ -111,7 +120,7 @@ body {
 /* Form */
 .form {
     width: 100%;
-    height: 20vh;
+    height: 5rem;
     margin-top: auto;
     margin-bottom: 6rem;
     display: flex;
@@ -119,8 +128,8 @@ body {
     justify-content: space-around;
     background: var(--main-background);
     position: fixed;
-    left: 0;
     top: 82%;
+    left: 0;
 }
 
 /* Form TEXT Area */
