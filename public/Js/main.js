@@ -2,7 +2,8 @@
 const socket = io();
 
 // Audio On Message Receive MP3 Path //
-const audio = new Audio('../MP3/ding.mp3');
+const receiveAudio = new Audio('../MP3/ding.mp3');
+const sendAudio = new Audio('../MP3/send.mp3');
 
 // Html DOM Elements //
 const dataContainer = document.getElementById('data-container');
@@ -30,7 +31,11 @@ function appendData(data , className) {
     dataContainer.appendChild(divElement);
 
     // Playing Audio on Message Receive/ Send //
-    audio.play();
+    if (className === "left") {
+        receiveAudio.play();
+    } else {
+        sendAudio.play();
+    }
 }
 
 // Listening An Event On Form Submit //
