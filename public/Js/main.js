@@ -20,6 +20,15 @@ function appendData(data , className) {
     const divElement = document.createElement('div');
     divElement.classList.add('message-box');
 
+    // Creating Image Element //
+    const imgElement = document.createElement('img');
+    imgElement.classList.add('icon');
+    imgElement.classList.add('left');
+    imgElement.src = "../Img/icon.png" ;
+    if (className !== "left") {
+        imgElement.style.display = "none" ;
+    }
+    
     // Creating Small Tag Element For Div Element with classList Small //
     const messageElement = document.createElement('small');
     messageElement.classList.add('small');
@@ -27,14 +36,13 @@ function appendData(data , className) {
 
     // Inserting Data To Created Element //
     messageElement.innerText = data;
+    divElement.appendChild(imgElement);
     divElement.appendChild(messageElement);
     dataContainer.appendChild(divElement);
 
     // Playing Audio on Message Receive/ Send //
     if (className === "left") {
         receiveAudio.play();
-    } else {
-        sendAudio.play();
     }
 }
 
@@ -48,6 +56,7 @@ form.addEventListener('submit', (event) => {
     if (textArea.value != "") {
         appendData(`${message}`, 'right');
         socket.emit('send', message); // send message to Server //
+        sendAudio.play();
     }
     textArea.value = "";
 });
