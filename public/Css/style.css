@@ -69,19 +69,18 @@ body {
 
 /* Data Container Message Box All Small Tag */
 .data-container .small {
-    width: 20rem;
+    width: auto;
+    max-width: 20rem;
     height: auto;
     min-height: 3rem;
     overflow-wrap: wrap;
     margin: 1rem;
     padding: 1rem;
     display: flex;
-    align-items: center;
     border-radius: 1rem;
     color: var(--soft-white);
     font-weight: bold;
     font-size: 1.2rem;
-    display: flex;
     flex-direction: column;
 }
 
