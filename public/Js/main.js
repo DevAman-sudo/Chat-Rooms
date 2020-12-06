@@ -40,14 +40,18 @@ function appendData(data , className) {
     divElement.appendChild(messageElement);
     dataContainer.appendChild(divElement);
 
-    // Scrolling Div Element With Anime Js //
+    // Animating Div Element With Anime Js //
     anime({
-        targets: '.small .icon',
-        translateY: 50
+        targets: '.small',
+        translateY: 20
+    });
+    anime({
+        targets: '.icon',
+        translateY: 20
     });
 
     // Scroll Down By 100 On Content Add On Data Container //
-    dataContainer.scrollBy(0 , -100);
+    dataContainer.scrollBy(0 , -100000000000);
     
     // Playing Audio on Message Receive/ Send //
     if (className === "left") {
