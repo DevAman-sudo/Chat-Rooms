@@ -46,6 +46,9 @@ function appendData(data , className) {
         translateY: 50
     });
 
+    // Scroll Down By 100 On Content Add On Data Container //
+    dataContainer.scrollBy(0 , -100);
+    
     // Playing Audio on Message Receive/ Send //
     if (className === "left") {
         receiveAudio.play();
