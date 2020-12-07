@@ -10,6 +10,7 @@ const dataContainer = document.getElementById('data-container');
 const form = document.getElementById('form');
 const textArea = document.getElementById('text-area');
 const button = document.getElementById('button');
+const btnIcon = document.getElementById('btn-icon');
 
 // Receiving Name Of Client With Prompt //
 const Name = prompt("Enter Your Name:: ");
@@ -56,6 +57,8 @@ function appendData(data , className) {
     // Playing Audio on Message Receive/ Send //
     if (className === "left") {
         receiveAudio.play();
+    } else if (className === "right") {
+        sendAudio.play();
     }
 }
 
@@ -65,11 +68,11 @@ form.addEventListener('submit', (event) => {
     event.preventDefault();
 
     // append message on data container //
-    const message = textArea.value;
+    const message = textArea.value ;
     if (textArea.value != "") {
         appendData(`${message}`, 'right');
+        // sendAudio.play();
         socket.emit('send', message); // send message to Server //
-        sendAudio.play();
     }
     // Clearing Text Area After On Button Click //
     textArea.value = "";
