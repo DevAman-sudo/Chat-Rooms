@@ -1,0 +1,24 @@
+/* universal star operator */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* css root variables */
+:root {
+    --soft-white: #f1f1f1;
+}
+
+/* Html and Body Tag */
+html {  font-size: 62.5%; }
+
+body {
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
