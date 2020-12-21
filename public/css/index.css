@@ -22,3 +22,37 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+/* Header Section */
+.header {
+	display: flex;
+	padding: 1rem;
+	align-items: center;
+}
+
+.header .icon {
+	width: 5rem;
+	height: 5rem;
+	object-fit: cover;
+	border: 0.4rem solid blue;
+	border-radius: 50%;
+}
+
+.header .title {
+	font-size: 1.7rem;
+	font-weight: bold;
+	margin: 1rem;
+}
+
+.header .icon-box {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: auto;
+}
+
+.header .icon-box-icon {
+	font-size: 2.5rem;
+	margin: 0.5rem;
+	color: blue;
+}
