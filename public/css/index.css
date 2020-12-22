@@ -9,7 +9,9 @@
 
 /* css root variables */
 :root {
+	--messenger-blue: #0084FF;
     --soft-white: #f1f1f1;
+    --main-dark: #131418;
 }
 
 /* Html and Body Tag */
@@ -21,6 +23,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background: var(--main-dark);
 }
 
 /* Header Section */
@@ -34,7 +37,7 @@ body {
 	width: 5rem;
 	height: 5rem;
 	object-fit: cover;
-	border: 0.4rem solid blue;
+	border: 0.4rem solid var(--messenger-blue);
 	border-radius: 50%;
 }
 
@@ -42,6 +45,7 @@ body {
 	font-size: 1.7rem;
 	font-weight: bold;
 	margin: 1rem;
+	color: var(--soft-white);
 }
 
 .header .icon-box {
@@ -54,5 +58,5 @@ body {
 .header .icon-box-icon {
 	font-size: 2.5rem;
 	margin: 0.5rem;
-	color: blue;
+	color: var(--messenger-blue);
 }
