@@ -59,17 +59,30 @@ server.listen( port , (error) => {
 
 // CRUD Operation For NEDB Database //
 // Create / Insert Data //
-database.insert({
-    message: 'Hello World'
+let dbData = [{
+    message: 'Hello World **'
+}]
+database.insert(dbData , (error , data) => {
+    if (error) {
+        console.log(`Database Error Found => ${error}`);
+    }
 });
 
 // Read Data //
 // Reading Database Stored Data With Node FileSystem //
 fs.readFile('database.db' , 'utf-8' , (error , data) => {
     if (error) {
-        console.log(`Error Found => ${error}`);
+        console.log(`Database Error Found => ${error}`);
     } else {
-        const dbData = data;
-        console.log( chalk.red.bgBlue(dbData));
+        console.log( chalk.red.bgBlue(data));
     }
 })
+
+// Reading Database Stored Data With find Methord //
+database.find( {} , (error , data) => {
+    if (error) {
+        console.log(`Error Found => ${error}`);
+    } else {
+        console.log( chalk.red.bgBlue( JSON.stringify( data[0]._id)));
+    }
+});
