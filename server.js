@@ -14,9 +14,24 @@ const staticPath = path.join( __dirname , '/public/');
 const port = process.env.PORT || 8080 ;
 app.use( express.static( staticPath));
 
-// Creating DataBase //
-const database = new Datastore('database.db');
+// Creating DataBase // We Can Create Multipal DataBase //
+const database = new Datastore({
+    filename: path.join( __dirname , 'database.db') ,
+    autoload: true 
+});
 database.loadDatabase( error => {
+    // Catching Errors Of Database //
+    if (error) {
+        console.log( chalk.blue.bgRed(`DataBase Error Found => ${error}`));
+    }
+});
+
+// Creating Admin DataBase //
+const adminDatabase = new Datastore({
+    filename: path.join( __dirname , 'adminDatabase.db') ,
+    autoload: true 
+});
+adminDatabase.loadDatabase( error => {
     // Catching Errors Of Database //
     if (error) {
         console.log( chalk.blue.bgRed(`DataBase Error Found => ${error}`));
