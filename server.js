@@ -16,7 +16,12 @@ app.use( express.static( staticPath));
 
 // Creating DataBase //
 const database = new Datastore('database.db');
-database.loadDatabase();
+database.loadDatabase( error => {
+    // Catching Errors Of Database //
+    if (error) {
+        console.log( chalk.blue.bgRed(`DataBase Error Found => ${error}`));
+    }
+});
 
 // Express App Router SetUp //
 app.get('/' , (req , res) => {
@@ -49,7 +54,7 @@ fs.readFile('database.db' , 'utf-8' , (error , data) => {
     if (error) {
         console.log(`Error Found => ${error}`);
     } else {
-        const dbData = [data];
-        console.log( chalk.red.bgBlue(dbData[0].id));
+        const dbData = data;
+        console.log( chalk.red.bgBlue(dbData));
     }
 })
