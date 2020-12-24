@@ -8,7 +8,7 @@ const chalk = require('chalk');
 const Datastore = require('nedb');
 
 // Files Path Variables //
-const staticPath = path.join(__dirname, '/public/');
+const staticPath = path.join(__dirname, '../public/');
 
 // Using App And Port SetUp //
 const port = process.env.PORT || 8080;
@@ -16,7 +16,7 @@ app.use(express.static(staticPath));
 
 // Creating DataBase // We Can Create Multipal DataBase //
 const database = new Datastore({
-    filename: path.join(__dirname, 'database.db'),
+    filename: path.join(__dirname, '../database.db'),
     autoload: true
 });
 database.loadDatabase(error => {
@@ -28,7 +28,7 @@ database.loadDatabase(error => {
 
 // Creating Admin DataBase //
 const adminDatabase = new Datastore({
-    filename: path.join(__dirname, 'adminDatabase.db'),
+    filename: path.join(__dirname, '../adminDatabase.db'),
     autoload: true
 });
 adminDatabase.loadDatabase(error => {
@@ -51,7 +51,7 @@ database.insert(dbData, (error, data) => {
 
 // Read Data //
 // Reading Database Stored Data With Node FileSystem //
-fs.readFile('database.db', 'utf-8', (error, data) => {
+fs.readFile('../database.db', 'utf-8', (error, data) => {
     if (error) {
         console.log(`Database Error Found => ${error}`);
     } else {
