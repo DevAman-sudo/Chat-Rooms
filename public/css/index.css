@@ -116,6 +116,10 @@ body {
 	border-radius: 1rem;
 	padding: 1rem;
 	font-size: 1.2rem;
+	border: none;
+}
+.form .text-area:focus {
+	outline: 0;
 }
 
 .form .button {
@@ -126,4 +130,7 @@ body {
 	border-radius: 50%;
 	background: var(--main-dark);
 	color: var(--soft-white);
+}
+.form .button:focus {
+	outline: 0;
 }
