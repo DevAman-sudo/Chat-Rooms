@@ -12,18 +12,14 @@
 :root {
 	--messenger-blue: #0084FF;
     --soft-white: #f1f1f1;
-    --main-dark: #131418;
+    --dark: #131418;
+    --main-dark: #000;
 }
 
 /* Html and Body Tag */
 html {  font-size: 62.5%; }
 
 body {
-    width: 100vw;
-    height: auto;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
     background: var(--main-dark);
 }
 
@@ -35,15 +31,16 @@ body {
 }
 
 .header .icon {
-	width: 5rem;
-	height: 5rem;
+	width: 4rem;
+	height: 4rem;
 	object-fit: cover;
-	border: 0.4rem solid var(--messenger-blue);
+	background: var(--soft-white);
+	border: 0.3rem solid var(--soft-white);
 	border-radius: 50%;
 }
 
 .header .title {
-	font-size: 1.7rem;
+	font-size: 1.2rem;
 	font-weight: bold;
 	margin: 1rem;
 	color: var(--soft-white);
@@ -57,35 +54,76 @@ body {
 }
 
 .header .icon-box-icon {
-	font-size: 2.5rem;
+	font-size: 2.2rem;
 	margin: 0.5rem;
-	/* color: var(--messenger-blue); */
+	color: var(--soft-white);
+}
+
+/* hr line */
+.line {
+	background: var(--soft-white);
 }
 
 /* Data Container */
 .data-container {
-	padding: 1rem;
 	width: 100vw;
-	height: calc(100vh - 5rem);
-	/* background: var(--soft-white); */
+	height: calc(100vh - 15rem);
+	padding: 0.5rem;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	flex-direction: column-reverse;
+	overflow-y: auto;
 }
 
 .data-container .msg {
-	font-size: 1rem;
+	width: auto;
+	max-width: 15rem;
+	font-size: 1.2rem;
 	color: var(--soft-white);
 	border: 0.1rem solid white;
 	border-radius: 5rem;
-	margin: 1rem 0;
-	padding: 0.5rem 1rem;
+	margin: 0.7rem;
+	padding: 0.7rem 1rem;
 }
 
 .data-container .middle-msg {
-	
+	margin: 0.5rem auto;
 }
 
 .data-container .right-msg {
-	float: right;
+	margin-right: auto;
+	clear: both;
+}
+
+.data-container .left-msg {
+	margin-left: auto;
+	clear: both;
+	background: var(--messenger-blue);
+	border: none;
+}
+
+/* Form Area */
+.form {
+	width: 100vw;
+	height: 10rem;
+	display: flex;
+	justify-content: space-around;
+}
+
+.form .text-area {
+	width: 78%;
+	height: 4rem;
+	border: none;
+	border-radius: 1rem;
+	padding: 1rem;
+	font-size: 1.2rem;
+}
+
+.form .button {
+	width: 4rem;
+	height: 4rem;
+	object-fit: cover;
+	border: none;
+	border-radius: 50%;
+	background: var(--main-dark);
+	color: var(--soft-white);
 }
