@@ -1,21 +1,24 @@
-// Importing Socket Iiabrary //
-const socket = io();
-
 // JavaScript DOM Elements //
 const dataContainer = document.getElementById('data-container');
 const form = document.getElementById('form');
 const textArea = document.getElementById('text-area');
 const  button = document.getElementById('button');
 
-// Listining Submit Event On Form //
-form.addEventListener('submit' , event => {
-	// Preventing Page From Submitting //
-	event.preventDefault();
-	// Creating Elements To Store Data //
-	// createSmallElement();
-	// console.log(x);
+// Listening An Event On Form Submit //
+form.addEventListener('submit', (event) => {
+    // Preventing Page To Submit //
+    event.preventDefault();
+    
+    // Calling Function Create Element //
+    appendData();
+    
+    // Clearing Text Area After Submit //
+    textArea.value = "" ;
 });
 
-const createSmallElement = () => {
-	let x = 0 ;
+// Function To Create Element //
+const appendData = () => {
+	
 }
+
+console.log(name);
