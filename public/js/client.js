@@ -4,10 +4,13 @@ const socket = io();
 // Fetching User Name //
 const promptName = prompt("Enter Your Name => ");
 
+// Global Variables //
+var name;
+
 // Web Socket | Socket.Io Events //
 socket.emit( 'fetch-name' , promptName);
 socket.on('broadcast-name' , (username) => {
-    // console.log(username);
+    console.log(`dndnd    ${username}`);
+    username === name ;
 });
-
-// Data Variables //
+console.log(name);
