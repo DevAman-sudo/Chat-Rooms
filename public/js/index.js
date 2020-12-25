@@ -8,7 +8,7 @@ const textArea = document.getElementById('text-area');
 const  button = document.getElementById('button');
 
 // Listining Submit Event On Form //
-form.addEventListener( 'submit' , (event) => {
+form.addEventListener('submit' , event => {
 	// Preventing Page From Submitting //
 	event.preventDefault();
 	// Creating Elements To Store Data //
