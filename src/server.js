@@ -5,12 +5,14 @@ const server = require('http').createServer(app);
 const path = require('path');
 const fs = require('fs');
 const chalk = require('chalk');
+const webSocket = require('socket.io');
 const Datastore = require('nedb');
 
 // Files Path Variables //
 const staticPath = path.join(__dirname, '../public/');
 
 // Using App And Port SetUp //
+const io = webSocket(server);
 const port = process.env.PORT || 8080;
 app.use(express.static(staticPath));
 
@@ -26,13 +28,23 @@ database.loadDatabase(error => {
     }
 });
 
+// Web Socket | Socket.Io Events //
+io.on( 'connection' , socket => {
+    
+    // Fetch UserName //
+    socket.on( 'fetch-name' , username => {
+        console.log(username);
+        socket.broadcast.emit('boradcast-name' , username);
+    });
+    
+});
+
 // Express App Router SetUp //
 app.get('/', (req, res) => {
     res.sendFile(path.join(staticPath, 'index.html'));
 });
 
 app.get('*', (req, res) => {
-    res.setHead(404);
     res.send('404 Error => Page Not Found');
 });
 
