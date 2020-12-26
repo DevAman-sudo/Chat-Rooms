@@ -10,15 +10,17 @@ form.addEventListener('submit', (event) => {
     event.preventDefault();
     
     // Calling Function Create Element //
-    appendData();
+    CreateElement();
+    element.classList.add('msg' , 'middle-msg');
+    dataContainer.append(element);
     
     // Clearing Text Area After Submit //
     textArea.value = "" ;
 });
 
 // Function To Create Element //
-const appendData = () => {
-	
+function CreateElement() {
+	element = document.createElement('small');
+	element.classList.add('msg');
+	element.innerText = textArea.value ;
 }
-
-console.log(name);
