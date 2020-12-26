@@ -9,4 +9,3 @@ const username = prompt("Enter Your Name => ");
 
 // Web Socket | Socket.Io Events //
 socket.emit( 'fetch-name' , username);
-console.log(name);
