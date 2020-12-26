@@ -1,3 +1,9 @@
+// Socket Liabrary //
+// const socket = io();
+
+// Prompt UserName //
+const username = prompt('Enter Your Name => ');
+
 // JavaScript DOM Elements //
 const dataContainer = document.getElementById('data-container');
 const form = document.getElementById('form');
@@ -31,3 +37,14 @@ function appendData(data, className) {
 	data.classList.add(className);
 	dataContainer.append(data);
 }
+
+// Web Socket Connection || socket.io //
+io.on( 'connection' , (socket) => {
+	
+	// new user joined event //
+	socket.emit('new-user-joined' , username);
+	socket.on('user-joined' , (username) => {
+		appendData(username , 'middle-msg')
+	});
+	
+});

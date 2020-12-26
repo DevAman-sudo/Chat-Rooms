@@ -32,9 +32,9 @@ database.loadDatabase(error => {
 io.on( 'connection' , socket => {
     
     // Fetch UserName //
-    socket.on( 'fetch-name' , username => {
+    socket.on( 'new-user-joined' , username => {
         console.log(username);
-        socket.broadcast.emit('boradcast-name' , username);
+        socket.broadcast.emit('user-joined' , username);
     });
     
 });
