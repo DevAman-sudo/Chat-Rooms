@@ -33,8 +33,13 @@ io.on( 'connection' , socket => {
     
     // Fetch UserName //
     socket.on( 'new-user-joined' , username => {
-        console.log(username);
         socket.broadcast.emit('user-joined' , username);
+    });
+    
+    // Fetching User Message //
+    socket.on('send' , message => {
+        console.log(message);
+        socket.broadcast.emit('receive' , message);
     });
     
 });

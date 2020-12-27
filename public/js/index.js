@@ -16,29 +16,35 @@ form.addEventListener('submit', (event) => {
     event.preventDefault();
 
     // Calling Function Append Data //
-    // appendData(element, 'middle-msg');
+    if (textArea.value != null) {
+        socket.emit('send' , textArea.value);
+        appendData(textArea.value, 'left-msg');
+    }
+    
+    // Scrolling Up Data Container //
+    dataContainer.scrollBy(0 , -190000);
 
     // Clearing Text Area After Submit //
-    textArea.value = "";
+    textArea.value = null;
 });
-
-// Function To Create Element //
-function CreateElement(data) {
-    
-}
 
 // Function To Append Data //
 function appendData(data, className) {
     element = document.createElement('small');
-    element.classList.add('msg' , className);
+    element.classList.add('msg',
+        className);
     element.innerText = data;
     dataContainer.append(element);
 }
 
 // Web Socket Connection || socket.io //
-
 // new user joined event //
 socket.emit('new-user-joined', username);
 socket.on('user-joined', (username) => {
     appendData(`${username} Joined The Chat`, 'middle-msg');
+});
+
+// User Message Receive Event //
+socket.on( 'receive' , message => {
+    appendData(message , 'right');
 });
