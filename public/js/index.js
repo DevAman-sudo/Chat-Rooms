@@ -45,6 +45,11 @@ socket.on('user-joined', (username) => {
 });
 
 // User Message Receive Event //
-socket.on( 'receive' , message => {
-    appendData(message , 'right');
+socket.on('receive' , (data) => {
+    appendData(`${data.username}:: ${data.message}` , 'right-msg');
+});
+
+// User Disconnect Event //
+socket.on( 'leave' , (username) => {
+    appendData(`${username} Left The Chat` , 'middle-msg');
 });
