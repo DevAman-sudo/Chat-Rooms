@@ -45,8 +45,8 @@ socket.on('user-joined', (username) => {
 });
 
 // User Message Receive Event //
-socket.on('receive' , (data) => {
-    appendData(`${data.username}:: ${data.message}` , 'right-msg');
+socket.on('receive', (data) => {
+    appendData(`${data.name}: ${data.message}`, 'right-msg');
 });
 
 // User Disconnect Event //

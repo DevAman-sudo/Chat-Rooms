@@ -30,28 +30,28 @@ database.loadDatabase(error => {
 
 // Web Socket | Socket.Io Events //
 let users = {};
-io.on( 'connection' , socket => {
-    
+io.on('connection', socket => {
+
     // Fetch UserName //
-    socket.on( 'new-user-joined' , username => {
+    socket.on('new-user-joined', username => {
         users[socket.id] = username;
-        socket.broadcast.emit('user-joined' , username);
+        socket.broadcast.emit('user-joined', username);
     });
-    
+
     // Fetching User Message //
-    socket.on('send' , data => {
-        socket.broadcast.emit('receive' , {
-            username: users[socket.id] ,
-            message: message
+    socket.on('send', (message) => {
+        // Sending Socket ID as Name and Message To Client Side //
+        socket.broadcast.emit('receive', {
+            name: users[socket.id], message: message
         });
     });
-    
+
     // Socket Disconnect Event //
-    socket.on('disconnect' , (username) => {
-        socket.broadcast.emit('leave' , users[socket.id]);
+    socket.on('disconnect', (username) => {
+        socket.broadcast.emit('leave', users[socket.id]);
         delete users[socket.id];
     });
-    
+
 });
 
 // Express App Router SetUp //
