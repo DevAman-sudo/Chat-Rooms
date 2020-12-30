@@ -153,7 +153,25 @@ body {
 
 /* Responsive Css Code */
 @media only screen and (orientation: landscape) {
+	.data-container {
+		padding: 0.5rem;
+	}
 	
+	.data-container .msg {
+		margin: 0.5rem;
+	}
+	
+	.data-container .left-msg {
+		margin-left: auto;
+	}
+	
+	.data-container .middle-msg {
+		margin: 0.4rem auto;
+	}
+	
+	.form {
+		top: 70%;
+	}
 }
 
 /* Extra small devices (phones, 600px and down) */
