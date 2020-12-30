@@ -10,6 +10,9 @@ const form = document.getElementById('form');
 const textArea = document.getElementById('text-area');
 const button = document.getElementById('button');
 
+// Audio Path //
+const sendAudio = new Audio('../MP3/ding.mp3');
+
 // Listening An Event On Form Submit //
 form.addEventListener('submit', (event) => {
     // Preventing Page To Submit //
@@ -35,6 +38,9 @@ function appendData(data, className) {
         className);
     element.innerText = data;
     dataContainer.append(element);
+    if (className === 'right-msg') {
+        sendAudio.play();
+    }
 }
 
 // Web Socket Connection || socket.io //
